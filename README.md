@@ -20,3 +20,13 @@ Things we need:
 
 - TSS Corpus
 - Wireframe for base template
+
+
+## Instructions
+
+- create a python virtualenv (this is a multistep process)
+- <code>$ pip install requirements.txt</code>
+- <code>$ python corpus-generator.py</code>
+
+This generates a time-stamped version of the HTML file (i.e. 2017-03-14-cloud.html)
+To change the "demo" page seen at http://trinitysoulstars.github.io/astralturf, just copy this new file to <code>index.html</code>
