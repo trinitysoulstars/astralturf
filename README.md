@@ -24,7 +24,7 @@ Things we need:
 
 ## Instructions
 
-- create a python virtualenv (this is a multistep process)
+- create a python virtualenv (this is a multistep process: http://docs.python-guide.org/en/latest/dev/virtualenvs/)
 - <code>$ pip install -r requirements.txt</code>
 - <code>$ python corpus-generator.py</code>
 
