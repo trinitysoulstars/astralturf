@@ -25,6 +25,8 @@ corpus = {
 
 terms=[]
 titles = ["AstralTurf: Protonode"]
+metadesc = ["AstralTurn: Protonode Description Goes Here"]
+authors = ["decause, FLOSSOpher - Trinity Soulstars - https://github.com/trinitysoulstars"]
 
 for term,link in corpus.iteritems():
     print term,link
@@ -32,38 +34,48 @@ for term,link in corpus.iteritems():
 
 print "terms =  %s " % terms
 print "titles = %s " % titles
-
+print "metadesc = %s " % metadesc
+print "authors = %s " % authors
 
 
 
 template = jinja2.Template("""
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>
-    {%- for title in titles: -%}
-        {{title}}
-    {%- endfor -%}
-    </title>
-    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
-    <meta http-equiv="Content-Style-Type" content="text/css"/>
-    <meta name="description" content="Hacktivist & Storyteller -  />
+        {%- for title in titles: -%}
+            {{title}}
+        {%- endfor -%}
+        </title>
+
+    <meta name="description" content="
+        {%- for desc in metadesc: -%}
+            {{desc}}
+        {%- endfor -%}"/>
+
     <meta name="keywords" content="
         {%- for term in terms: -%}
             {{term}},
         {%- endfor %}"/>
-    <meta name="author" content="decause, FLOSSOpher - Trinity Soulstars - https://github.com/trinitysoulstars"/>
+
+    <meta name="author" content="
+        {%- for author in authors: -%}
+            {{author}}
+        {%- endfor -%}"/>
     <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
     <link href="favicon.ico rel=" shortcut icon" />
 </head>
 
-<style>
 <body>
 
 
 
 <h2>Corpus</h2>
-    <div>
+    <div id='cloud'>
     <p>
         {% for term,link in corpus.iteritems(): %}
             <a target="_blank" href="{{link}}">{{term}}</a> 
@@ -75,7 +87,7 @@ template = jinja2.Template("""
 </html>
 """)
 
-output = template.render(corpus=corpus,terms=terms)
+output = template.render(corpus=corpus,terms=terms,titles=titles,metadesc=metadesc,authors=authors)
 
 with open('{}-cloud.html'.format(arrow.now().format()[0:10]), "wb") as f:
         f.write(output)
