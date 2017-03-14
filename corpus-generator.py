@@ -24,22 +24,27 @@ corpus = {
         }
 
 terms=[]
+titles = ["AstralTurf: Protonode"]
 
 for term,link in corpus.iteritems():
     print term,link
     terms.append(term)
 
-print terms
+print "terms =  %s " % terms
+print "titles = %s " % titles
+
 
 
 
 template = jinja2.Template("""
 <html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-
 <head>
-    <title>RemyD @ RIT</title>
+    <title>
+    {%- for title in titles: -%}
+        {{title}}
+    {%- endfor -%}
+    </title>
     <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
     <meta http-equiv="Content-Style-Type" content="text/css"/>
     <meta name="description" content="Hacktivist & Storyteller -  />
