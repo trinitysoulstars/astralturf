@@ -43,7 +43,7 @@ template = jinja2.Template("""
     <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
     <meta http-equiv="Content-Style-Type" content="text/css"/>
     <meta name="description" content="Hacktivist & Storyteller -  />
-    <meta name=" keywords" content="
+    <meta name="keywords" content="
         {%- for term in terms: -%}
             {{term}},
         {%- endfor %}"/>
