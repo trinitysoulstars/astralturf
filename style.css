@@ -1,6 +1,6 @@
 #cloud, a:link{
     text-decoration: none;
-    opacity: .3;
+    opacity: .5;
     z-index: -1;
 }
 
@@ -9,5 +9,14 @@
     left: 10%;
     top: 10%;
     align: center;
-    z-index: 0
+    z-index: 0;
+    float: right;
+
 }
+
+.boldwords {
+    font-weight: 900;
+    font-size: 150%;
+    opacity: .8;
+}
+
