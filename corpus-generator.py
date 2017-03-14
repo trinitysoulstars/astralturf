@@ -28,6 +28,9 @@ titles = ["AstralTurf: Protonode"]
 metadesc = ["AstralTurn: Protonode Description Goes Here"]
 authors = ["decause, FLOSSOpher - Trinity Soulstars - https://github.com/trinitysoulstars"]
 videos = ['<iframe width="560" height="315" src="https://www.youtube.com/embed/lRQGn1f5pYQ" frameborder="0" allowfullscreen></iframe>']
+boldwords = {
+        "BOLDWORD": "https://trinitysoulstars.com",
+        }
 
 for term,link in corpus.iteritems():
     print term,link
@@ -39,6 +42,8 @@ print "metadesc = %s " % metadesc
 print "authors = %s " % authors
 print "videos = %s " % videos
 
+for term,link in boldwords.iteritems():
+    print term,link
 
 
 template = jinja2.Template("""
@@ -81,16 +86,84 @@ template = jinja2.Template("""
 
 <div class='container-fluid' id='cloud'>
 <p>
-    {% for term,link in corpus.iteritems(): %}
+    {% for term,link in boldwords.iteritems(): -%}
+        <a class='boldwords' target="_blank" href="{{link}}">{{term}}</a> 
+    {% endfor -%}
+    {% for term,link in corpus.iteritems(): -%}
         <a target="_blank" href="{{link}}">{{term}}</a> 
     {% endfor %}
+<!-- Gigantic Block for Static Demo Page
+    {% for term,link in corpus.iteritems(): -%}
+        <a target="_blank" href="{{link}}">{{term}}</a> 
+    {% endfor %}
+    {% for term,link in corpus.iteritems(): -%}
+        <a target="_blank" href="{{link}}">{{term}}</a> 
+    {% endfor %}
+    {% for term,link in corpus.iteritems(): -%}
+        <a target="_blank" href="{{link}}">{{term}}</a> 
+    {% endfor %}
+    {% for term,link in corpus.iteritems(): -%}
+        <a target="_blank" href="{{link}}">{{term}}</a> 
+    {% endfor %}
+    {% for term,link in corpus.iteritems(): -%}
+        <a target="_blank" href="{{link}}">{{term}}</a> 
+    {% endfor %}
+    {% for term,link in corpus.iteritems(): -%}
+        <a target="_blank" href="{{link}}">{{term}}</a> 
+    {% endfor %}
+    {% for term,link in corpus.iteritems(): -%}
+        <a target="_blank" href="{{link}}">{{term}}</a> 
+    {% endfor %}
+    {% for term,link in corpus.iteritems(): -%}
+        <a target="_blank" href="{{link}}">{{term}}</a> 
+    {% endfor %}
+    {% for term,link in corpus.iteritems(): -%}
+        <a target="_blank" href="{{link}}">{{term}}</a> 
+    {% endfor %}
+    {% for term,link in corpus.iteritems(): -%}
+        <a target="_blank" href="{{link}}">{{term}}</a> 
+    {% endfor %}
+    {% for term,link in corpus.iteritems(): -%}
+        <a target="_blank" href="{{link}}">{{term}}</a> 
+    {% endfor %}
+    {% for term,link in corpus.iteritems(): -%}
+        <a target="_blank" href="{{link}}">{{term}}</a> 
+    {% endfor %}
+    {% for term,link in corpus.iteritems(): -%}
+        <a target="_blank" href="{{link}}">{{term}}</a> 
+    {% endfor %}
+    {% for term,link in corpus.iteritems(): -%}
+        <a target="_blank" href="{{link}}">{{term}}</a> 
+    {% endfor %}
+    {% for term,link in corpus.iteritems(): -%}
+        <a target="_blank" href="{{link}}">{{term}}</a> 
+    {% endfor %}
+    {% for term,link in corpus.iteritems(): -%}
+        <a target="_blank" href="{{link}}">{{term}}</a> 
+    {% endfor %}
+    {% for term,link in corpus.iteritems(): -%}
+        <a target="_blank" href="{{link}}">{{term}}</a> 
+    {% endfor %}
+    {% for term,link in corpus.iteritems(): -%}
+        <a target="_blank" href="{{link}}">{{term}}</a> 
+    {% endfor %}
+    {% for term,link in corpus.iteritems(): -%}
+        <a target="_blank" href="{{link}}">{{term}}</a> 
+    {% endfor %}
+    {% for term,link in corpus.iteritems(): -%}
+        <a target="_blank" href="{{link}}">{{term}}</a> 
+    {% endfor %}
+    {% for term,link in corpus.iteritems(): -%}
+        <a target="_blank" href="{{link}}">{{term}}</a> 
+    {% endfor %}
+    -->
 </p>
 </div>
 
 <div id='video'>
     {% for video in videos: %}
         {{video}},
-    {% endfor %}"/>
+    {% endfor %}
 </div>
 
 </body>
@@ -98,7 +171,7 @@ template = jinja2.Template("""
 """)
 
 # When you add new elements to the template, you must define it outside the template, and then pass in the value below
-output = template.render(corpus=corpus,terms=terms,titles=titles,metadesc=metadesc,authors=authors,videos=videos)
+output = template.render(corpus=corpus,terms=terms,titles=titles,metadesc=metadesc,authors=authors,videos=videos,boldwords=boldwords)
 
 with open('{}-cloud.html'.format(arrow.now().format()[0:10]), "wb") as f:
         f.write(output)
