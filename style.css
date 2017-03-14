@@ -1,0 +1,13 @@
+#cloud, a:link{
+    text-decoration: none;
+    opacity: .3;
+    z-index: -1;
+}
+
+#video{
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    align: center;
+    z-index: 0
+}
