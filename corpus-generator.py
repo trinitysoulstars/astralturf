@@ -23,11 +23,38 @@ corpus = {
         "Mt Meru": "https://trinitysoulstars.com",
         }
 
+terms=[]
+
 for term,link in corpus.iteritems():
     print term,link
+    terms.append(term)
+
+print terms
+
+
 
 template = jinja2.Template("""
-<html> <body>
+<html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <title>RemyD @ RIT</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <meta http-equiv="Content-Style-Type" content="text/css"/>
+    <meta name="description" content="Hacktivist & Storyteller -  />
+    <meta name=" keywords" content="
+        {%- for term in terms: -%}
+            {{term}},
+        {%- endfor %}"/>
+    <meta name="author" content="decause, FLOSSOpher - Trinity Soulstars - https://github.com/trinitysoulstars"/>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
+    <link href="favicon.ico rel=" shortcut icon" />
+</head>
+
+<style>
+<body>
+
 
 
 <h2>Corpus</h2>
@@ -39,10 +66,11 @@ template = jinja2.Template("""
     </p>
     </div>
 
-</body> </html>
+</body>
+</html>
 """)
 
-output = template.render(corpus=corpus)
+output = template.render(corpus=corpus,terms=terms)
 
 with open('{}-cloud.html'.format(arrow.now().format()[0:10]), "wb") as f:
         f.write(output)
