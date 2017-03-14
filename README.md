@@ -25,7 +25,7 @@ Things we need:
 ## Instructions
 
 - create a python virtualenv (this is a multistep process)
-- <code>$ pip install requirements.txt</code>
+- <code>$ pip install -r requirements.txt</code>
 - <code>$ python corpus-generator.py</code>
 
 This generates a time-stamped version of the HTML file (i.e. 2017-03-14-cloud.html)
