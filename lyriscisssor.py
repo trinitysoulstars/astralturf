@@ -43,6 +43,8 @@ banned_parts_of_speech = [
 ]
 
 banned_words = [
+    'Chorus',
+    'chorus',
     'is',
     'has',
     'had',
